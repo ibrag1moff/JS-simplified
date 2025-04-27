@@ -11,3 +11,7 @@
 body {
   @apply bg-body text-white font-serif;
 }
+
+*::selection {
+  @apply bg-primary text-white;
+}
