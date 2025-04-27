@@ -38,9 +38,11 @@ export default function Sidebar() {
         >
           <AiOutlineMenu size={25} />
         </button>
+
         <div className="mb-2">
           <ThemeToggle />
         </div>
+
         <button
           className={`cursor-pointer pb-4 xl:hover:text-primary ${
             !isExpanded && "block mx-auto"
