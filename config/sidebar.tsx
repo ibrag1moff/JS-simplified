@@ -89,7 +89,7 @@ export const NavItems = () => {
       items: [
         {
           id: 0,
-          name: "Welcome to Book",
+          name: "Welcome to JavaScript Simplified",
           href: "/",
           active: isNavItemActive(pathname, "/"),
         },
