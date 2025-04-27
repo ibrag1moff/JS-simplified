@@ -9,7 +9,7 @@
 }
 
 body {
-  @apply bg-body text-white font-serif;
+  @apply bg-[#fff] dark:bg-body text-black dark:text-white font-serif;
 }
 
 *::selection {

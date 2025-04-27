@@ -4,6 +4,7 @@ import { NavItems } from "@/config/sidebar";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import Link from "next/link";
+import ThemeToggle from "@/widgets/ThemeToggle";
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(true);
@@ -16,7 +17,7 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`flex flex-col gap-12 bg-body border-r-6 border-hover h-screen overflow-auto ${
+      className={`flex flex-col gap-12 bg-[#fff] dark:bg-body border-r-6 border-[#e5e5e5] dark:border-hover h-screen overflow-auto ${
         isExpanded
           ? "absolute left-0 top-0 bottom-0 right-0 z-10 sm:static sm:w-90 p-6"
           : "relative w-20 p-1"
@@ -37,6 +38,9 @@ export default function Sidebar() {
         >
           <AiOutlineMenu size={25} />
         </button>
+        <div className="mb-2">
+          <ThemeToggle />
+        </div>
         <button
           className={`cursor-pointer pb-4 xl:hover:text-primary ${
             !isExpanded && "block mx-auto"
@@ -68,13 +72,14 @@ export default function Sidebar() {
                 <Link
                   href={item.href}
                   key={item.id}
-                  className={`flex items-center gap-2 border-b border-hover text-white py-2  xl:hover:bg-hover rounded ${
+                  className={`flex items-center gap-2 border-b border-[#e5e5e5] dark:border-hover text-black dark:text-white py-2 xl:hover:bg-[#e5e5e5] dark:xl:hover:bg-hover rounded ${
                     isExpanded ? "block" : "hidden"
                   } ${
-                    item.active && "!text-primary !bg-hover !border-primary"
+                    item.active &&
+                    "!text-primary !bg-[#e5e5e5] dark:!bg-hover !border-primary"
                   }`}
                 >
-                  <span className="text-primary tracking-[2px] text-xl font-secondary">
+                  <span className="text-primary font-medium tracking-[2px] text-xl font-secondary">
                     {item.id < 10 ? "00" : "0"}
                     {item.id}
                   </span>
