@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
-import { ThemeProvider } from "next-themes";
+import Providers from "./providers";
 
 const rubik = Rubik({
   subsets: ["latin"],
@@ -21,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className={`${rubik.className} antialiased`}>
+      <body className={`${rubik.className} antialiased`}>
+        <Providers>
           <div className="flex">
             <Sidebar />
             <div className="w-full overflow-x-auto">
@@ -33,8 +33,8 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-        </body>
-      </ThemeProvider>
+        </Providers>
+      </body>
     </html>
   );
 }
