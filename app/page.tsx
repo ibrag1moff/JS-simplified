@@ -56,7 +56,7 @@ export default function Home() {
           or confused because of similar terminology.
         </p>
 
-        <h3 className="font-medium">Good luck!</h3>
+        <h3 className="font-medium !text-md">Good luck!</h3>
       </div>
     </div>
   );

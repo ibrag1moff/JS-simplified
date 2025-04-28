@@ -29,3 +29,11 @@ p {
 h3 {
   @apply font-bold text-2xl;
 }
+
+ul {
+  list-style: disc;
+}
+
+*::marker {
+  @apply text-primary/60;
+}
