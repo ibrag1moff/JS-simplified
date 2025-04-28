@@ -21,3 +21,11 @@ body {
 span {
   @apply text-primary;
 }
+
+p {
+  @apply font-medium text-lg;
+}
+
+h3 {
+  @apply font-bold text-2xl;
+}

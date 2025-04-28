@@ -21,8 +21,8 @@ export default function Popup() {
       >
         <h1 className="text-2xl font-semibold ">Welcome!</h1>
         <p className="max-w-full text-md font-medium">
-          <span className="italic">Fun fact:</span> you can login more than
-          once, it is completely
+          <span className="italic !text-white">Fun fact: </span> you can login
+          more than once, it is completely
           <span className="text-primary ml-1">idempotent</span> 😄
         </p>
         <button

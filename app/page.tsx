@@ -1,12 +1,12 @@
+import SectionTitle from "@/widgets/SectionTitle";
+
 export default function Home() {
   return (
     <div className="flex flex-col gap-24 px-5">
-      <h1 className="font-bold text-4xl uppercase font-sans">
-        JavaScript Simplified - Intro
-      </h1>
+      <SectionTitle title="JavaScript Simplified - Intro" />
       <div className="flex flex-col gap-4">
-        <h3 className="font-bold text-2xl">Welcome!</h3>
-        <p className="font-medium text-lg">
+        <h3>Welcome!</h3>
+        <p>
           Hey, thanks for stopping by! 👋 This book will help you{" "}
           <span>understand</span> and <span>master</span> JavaScript in a{" "}
           <span>simplified way</span>. It is designed for beginners and
@@ -16,7 +16,7 @@ export default function Home() {
         </p>
       </div>
 
-      <p className="font-medium text-lg">
+      <p>
         After helping hundreds of students learn JavaScript, I noticed the same
         <span> patterns</span> of confusion and common obstacles repeating
         themselves. Concepts like closures, <span>asynchronous behavior</span>,
@@ -34,8 +34,8 @@ export default function Home() {
       </p>
 
       <div className="flex flex-col gap-4">
-        <h3 className="font-bold text-2xl">Additional Notes</h3>
-        <p className="font-medium text-lg">
+        <h3>Additional Notes</h3>
+        <p>
           This book is much more than just a simple overview of common
           <span> JavaScript ideas.</span> While it touches on some well-known
           topics, it introduces <span>many concepts</span> that are far more
