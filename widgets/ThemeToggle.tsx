@@ -1,3 +1,4 @@
+"use client";
 import { useTheme } from "next-themes";
 
 import { BsMoon } from "react-icons/bs";
@@ -9,10 +10,6 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
-
-  if (theme === "system") {
-    return null;
-  }
 
   console.log(theme);
 

@@ -6,6 +6,8 @@
   --color-hover: #302c30;
 
   --font-secondary: "Titilium Web", sans-serif;
+
+  --shadow-custom: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 
 body {

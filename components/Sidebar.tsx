@@ -5,9 +5,12 @@ import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import Link from "next/link";
 import ThemeToggle from "@/widgets/ThemeToggle";
+import { usePopup } from "@/context/popupContext";
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(true);
+
+  const { openPopup } = usePopup();
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);
@@ -24,6 +27,7 @@ export default function Sidebar() {
       }`}
     >
       <div
+        onClick={(e) => e.stopPropagation()}
         className={`flex items-center gap-7  ${
           isExpanded
             ? "flex-row"
@@ -51,6 +55,7 @@ export default function Sidebar() {
           <AiOutlineSearch size={25} />
         </button>
         <button
+          onClick={openPopup}
           className={`cursor-pointer pb-4 xl:hover:text-primary ${
             !isExpanded && "block mx-auto"
           }`}
