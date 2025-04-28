@@ -17,3 +17,7 @@ body {
 *::selection {
   @apply bg-primary text-white;
 }
+
+span {
+  @apply text-primary;
+}
