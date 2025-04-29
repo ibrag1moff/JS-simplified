@@ -20,24 +20,20 @@ export default function Sidebar() {
 
   return (
     <div
-      className={`flex flex-col gap-12 bg-[#fff] dark:bg-body border-r-6 border-[#e5e5e5] dark:border-hover h-screen overflow-auto ${
+      className={`flex flex-col gap-12 bg-[#fff] dark:bg-body border-b-6 md:border-r-6 border-[#e5e5e5] dark:border-hover md:h-screen overflow-auto ${
         isExpanded
-          ? "absolute left-0 top-0 bottom-0 right-0 z-10 sm:static sm:w-90 p-6"
-          : "relative w-20 p-1"
+          ? "absolute left-0 top-0 bottom-0 right-0 z-10 md:static md:w-90 p-6"
+          : "relative w-full md:w-20 p-1 h-max"
       }`}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`flex items-center gap-7  ${
-          isExpanded
-            ? "flex-row"
-            : "absolute top-10 left-1/2 translate-x-[-50%] flex-col"
+        className={`flex items-center justify-between gap-7 px-5 md:px-0  ${
+          !isExpanded && "md:flex-col py-5"
         }`}
       >
         <button
-          className={`cursor-pointer pb-4 xl:hover:text-primary ${
-            !isExpanded && "block mx-auto"
-          }`}
+          className="cursor-pointer pb-4 xl:hover:text-primary"
           onClick={toggleSidebar}
         >
           <AiOutlineMenu size={25} />
@@ -47,33 +43,25 @@ export default function Sidebar() {
           <ThemeToggle />
         </div>
 
-        <button
-          className={`cursor-pointer pb-4 xl:hover:text-primary ${
-            !isExpanded && "block mx-auto"
-          }`}
-        >
+        <button className="cursor-pointer pb-4 xl:hover:text-primary">
           <AiOutlineSearch size={25} />
         </button>
         <button
           onClick={openPopup}
-          className={`cursor-pointer pb-4 xl:hover:text-primary ${
-            !isExpanded && "block mx-auto"
-          }`}
+          className="cursor-pointer pb-4 xl:hover:text-primary"
         >
           <HiOutlineUserCircle size={25} />
         </button>
       </div>
 
-      <div className="flex flex-col mb-auto gap-8">
+      <div
+        className={`flex flex-col mb-auto gap-8
+        ${isExpanded ? "block" : "hidden"}
+        `}
+      >
         {navGroups.map((group, i) => (
           <div key={i} className="flex flex-col gap-4">
-            <h2
-              className={`font-medium tracking-[2px] ${
-                isExpanded ? "block" : "hidden"
-              }`}
-            >
-              {group.groupName}
-            </h2>
+            <h2 className={`font-medium tracking-[2px]`}>{group.groupName}</h2>
             <>
               {group.items.map((item) => (
                 <Link
