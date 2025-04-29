@@ -20,7 +20,7 @@ export default function Popup() {
         className="flex flex-col justify-center text-center gap-4 w-[342px] bg-body border border-primary shadow-custom shadow-primary/50 rounded-xl p-4"
       >
         <h1 className="text-2xl font-semibold ">Welcome!</h1>
-        <p className="max-w-full text-md font-medium">
+        <p className="max-w-full !text-[15px] font-medium">
           <span className="italic !text-white">Fun fact: </span> you can login
           more than once, it is completely
           <span className="text-primary ml-1">idempotent</span> 😄
