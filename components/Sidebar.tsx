@@ -6,9 +6,12 @@ import { HiOutlineUserCircle } from "react-icons/hi";
 import Link from "next/link";
 import ThemeToggle from "@/widgets/ThemeToggle";
 import { usePopup } from "@/context/popupContext";
+import useViewportWidth from "@/hooks/useViewportWidth";
 
 export default function Sidebar() {
   const [isExpanded, setIsExpanded] = useState(true);
+
+  const width = useViewportWidth();
 
   const { openPopup } = usePopup();
 
@@ -28,8 +31,8 @@ export default function Sidebar() {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`flex items-center justify-between gap-7 px-5 md:px-0  ${
-          !isExpanded && "md:flex-col py-5"
+        className={`flex items-center justify-between gap-7  ${
+          !isExpanded && "md:flex-col py-5 px-5"
         }`}
       >
         <button
@@ -73,6 +76,11 @@ export default function Sidebar() {
                     item.active &&
                     "!text-primary !bg-[#e5e5e5] dark:!bg-hover !border-primary"
                   }`}
+                  onClick={() => {
+                    if (width < 768) {
+                      setIsExpanded(false);
+                    }
+                  }}
                 >
                   <span className="text-primary font-medium tracking-[2px] text-xl font-secondary">
                     {item.id < 10 ? "00" : "0"}
