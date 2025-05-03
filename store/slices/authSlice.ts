@@ -16,13 +16,13 @@ const initialState: UserState = {
   user: null,
   isLoggedIn: false,
   isLoading: false,
-  error: null,
+  error: null
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {}
 });
 
 export const {} = userSlice.actions;

@@ -4,7 +4,7 @@ import {
   ReactNode,
   useContext,
   useEffect,
-  useState,
+  useState
 } from "react";
 
 type PopupContextType = {

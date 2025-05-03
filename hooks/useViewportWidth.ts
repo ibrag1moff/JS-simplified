@@ -1,15 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function useViewportWidth() {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
-    window.addEventListener("resize", handleResize);
+    handleResize();
 
-    // Clean up the event listener
+    window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
