@@ -7,7 +7,7 @@ interface ArticleProps {
 
 export default function Article({ title, children }: ArticleProps) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-5">
       {title && <h3>{title}</h3>}
       {children}
     </div>

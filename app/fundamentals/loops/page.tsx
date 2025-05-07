@@ -3,7 +3,7 @@ import SectionTitle from "@/widgets/SectionTitle";
 import Article from "@/components/Article";
 import CodeDisplay from "@/widgets/CodeDisplay";
 
-export default function Loops() {
+export default function LoopsPage() {
   return (
     <Chapter>
       <SectionTitle title={"Loops in JavaScript"} />
@@ -37,30 +37,6 @@ console.log(2);
 console.log(100);
         `}
         />
-
-        <p>Of course not.</p>
-
-        <p>
-          Instead, you’d use a <span>loop,</span> and with just a few{" "}
-          <span>lines</span> of code, <span>achieve</span> the same result — in
-          a clean, elegant, and scalable way.
-        </p>
-
-        <p className={"mt-4"}>
-          In this chapter, we <span>explore</span> the two most{" "}
-          <span>commonly</span> used loops in JavaScript:
-        </p>
-
-        <ul>
-          <li>For</li>
-          <li>While</li>
-        </ul>
-
-        <p>
-          Along the way, we’ll <span>uncover</span> real-world examples, common
-          pitfalls, and even how to <span>write</span> loops that senior
-          <span>engineers</span> would admire.
-        </p>
       </Article>
     </Chapter>
   );
