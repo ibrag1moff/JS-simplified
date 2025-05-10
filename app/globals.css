@@ -32,6 +32,7 @@ h3 {
 
 ul {
   list-style: disc;
+  margin-left: 16px;
 }
 
 *::marker {
