@@ -42,13 +42,13 @@ export const NavItems = () => {
         },
         {
           id: 4,
-          name: "Control Flow (if, switch)",
-          href: "/fundamentals/control-flow",
-          active: isNavItemActive(pathname, "/fundamentals/control-flow")
+          name: "Conditionals",
+          href: "/fundamentals/conditionals",
+          active: isNavItemActive(pathname, "/fundamentals/conditionals")
         },
         {
           id: 5,
-          name: "Loops (for, while)",
+          name: "Loops",
           href: "/fundamentals/loops",
           active: isNavItemActive(pathname, "/fundamentals/loops")
         },

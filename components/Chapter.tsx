@@ -5,5 +5,5 @@ interface ChapterProps {
 }
 
 export default function Chapter({ children }: ChapterProps) {
-  return <div className="flex flex-col gap-24 px-5">{children}</div>;
+  return <div className="flex flex-col gap-24 px-5 pb-20">{children}</div>;
 }

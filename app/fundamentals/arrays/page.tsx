@@ -112,8 +112,8 @@ const fruits = ["apple", "banana", "orange"];
           they are not compared or copied by their actual contents, but by their
           reference in memory. When you <span>create</span> an array, the
           variable <span>doesn’t store</span> the actual array data — it{" "}
-          <span>stores</span>a reference (a pointer) to where the array lives in
-          memory.
+          <span>stores </span>a reference (a pointer) to where the array lives
+          in memory.
         </p>
 
         <CodeDisplay
