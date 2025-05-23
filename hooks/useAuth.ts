@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 
 import { useCookies } from "react-cookie";
+import { useAppDispatch } from "@/hooks/redux";
+import { setUser } from "@/store/slices/userSlice";
 
 const providers = {
   google: new GoogleAuthProvider(),
@@ -20,6 +22,8 @@ export const useAuth = () => {
   const [, setCookie] = useCookies(["firebaseToken", "refreshToken"]);
   const { closePopup } = usePopup();
 
+  const dispatch = useAppDispatch();
+
   const handleLogin = async (provider: Provider) => {
     try {
       const { user } = await signInWithPopup(firebaseAuth, providers[provider]);
@@ -31,6 +35,14 @@ export const useAuth = () => {
 
         closePopup();
       }
+
+      dispatch(
+        setUser({
+          firebaseId: user.uid,
+          name: user.displayName || "",
+          email: user.email!
+        })
+      );
 
       await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,

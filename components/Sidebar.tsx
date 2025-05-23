@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { NavItems } from "@/config/sidebar";
+import { AccessLevel, NavItems } from "@/config/sidebar";
 import { AiOutlineMenu, AiOutlineSearch } from "react-icons/ai";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export default function Sidebar() {
                 <Link
                   href={item.href}
                   key={item.id}
-                  className={`flex items-center gap-2 border-b border-[#e5e5e5] dark:border-hover text-black dark:text-white py-2 xl:hover:bg-[#e5e5e5] dark:xl:hover:bg-hover rounded ${
+                  className={`flex items-center  gap-2 border-b border-[#e5e5e5] dark:border-hover text-black dark:text-white py-2 xl:hover:bg-[#e5e5e5] dark:xl:hover:bg-hover rounded ${
                     isExpanded ? "block" : "hidden"
                   } ${
                     item.active &&
@@ -86,8 +86,18 @@ export default function Sidebar() {
                     {item.id < 10 ? "00" : "0"}
                     {item.id}
                   </span>
-
                   {item.name}
+
+                  <h2
+                    className={
+                      item.access === AccessLevel.PUBLIC ||
+                      item.access === AccessLevel.FREE_WITH_LOGIN
+                        ? "py-1 px-2 capitalize rounded text-[11px] border border-primary font-medium  tracking-[1px]"
+                        : "hidden"
+                    }
+                  >
+                    {item.access}
+                  </h2>
                 </Link>
               ))}
             </>
