@@ -59,8 +59,8 @@ console.log(name); // Rufat
       <Article title={"Function scope"}>
         <p>
           Variables declared <span>inside</span> a function are in the{" "}
-          <span>function</span>
-          scope. They are only accessible <span>within</span> that function.
+          <span>function </span> scope. They are only accessible{" "}
+          <span>within</span> that function.
         </p>
 
         <CodeDisplay
@@ -127,7 +127,67 @@ console.log(color); // blue
           JavaScript looks up to the <span>outer</span> scope. This chain
           continues until it <span>reaches</span> the <span>global scope.</span>
         </p>
+
+        <p>
+          This behavior is known as the <span>scope chain.</span> In JavaScript,
+          every function <span>creates</span> a new scope. When a variable is
+          accessed, the <span>JavaScript engine</span> starts by looking in the
+          local scope (inside the current function). If the variable isn’t found
+          there, it continues to search <span>outward</span> through the
+          enclosing (parent) scopes, one level at a time, until it either finds
+          the variable or reaches the <span>global scope.</span>
+        </p>
+
+        <p>
+          The scope chain is essentially{" "}
+          <span>a list of variable environments</span> that the engine follows
+          in a specific order: from <span>innermost (local)</span> to{" "}
+          <span>outermost (global).</span> This allows functions to{" "}
+          <span>access</span> variables declared in outer scopes, but not vice
+          versa.
+        </p>
+
+        <CodeDisplay
+          code={`
+let globalVar = "I am global";
+
+function outerFunction() {
+  let outerVar = "I am in outerFunction";
+
+  function innerFunction() {
+    let innerVar = "I am in innerFunction";
+    console.log(globalVar);  // I am global
+    console.log(outerVar);   // I am in outerFunction
+    console.log(innerVar);   // I am in innerFunction
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+        `}
+        />
+
+        <p>
+          In this example, <span>innerFunction</span> can access{" "}
+          <span>innerVar</span> (local), <span>outerVar</span> (from
+          outerFunction), and <span>globalVar</span> (global).
+        </p>
+
+        <p>
+          However, <span>outerFunction</span> cannot access{" "}
+          <span>innerVar,</span> and the global scope cannot access either{" "}
+          <span>outerVar</span> or <span>innerVar.</span>
+        </p>
       </Article>
+
+      <p>
+        Understanding the <span>scope chain</span> is crucial for debugging and
+        avoiding variable name conflicts. It also plays a key role in{" "}
+        <span>closures,</span> where inner functions <span>remember</span>{" "}
+        variables from their outer scopes even after the outer function has
+        finished executing.
+      </p>
     </Chapter>
   );
 }

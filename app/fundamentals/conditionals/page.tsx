@@ -5,7 +5,7 @@ import Article from "@/components/Article";
 export default function ControlFlowPage() {
   return (
     <div className="flex flex-col gap-24 px-5">
-      <SectionTitle title="control flow" />
+      <SectionTitle title="Conditionals" />
 
       <div className="flex flex-col gap-4">
         <p>

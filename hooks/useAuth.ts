@@ -1,16 +1,17 @@
 import { usePopup } from "@/context/popupContext";
 import { firebaseAuth } from "@/lib/firebase";
+import axios from "axios";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithPopup
 } from "firebase/auth";
 
 import { useCookies } from "react-cookie";
 
 const providers = {
   google: new GoogleAuthProvider(),
-  github: new GithubAuthProvider(),
+  github: new GithubAuthProvider()
 };
 
 type Provider = keyof typeof providers;
@@ -30,13 +31,23 @@ export const useAuth = () => {
 
         closePopup();
       }
+
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+        {
+          token: firebaseToken
+        },
+        {
+          withCredentials: true
+        }
+      );
     } catch (e) {
-      console.error(e);
+      console.error("Error logging in", e);
     }
   };
 
   return {
     handleGoogleLogin: () => handleLogin("google"),
-    handleGithubLogin: () => handleLogin("github"),
+    handleGithubLogin: () => handleLogin("github")
   };
 };
