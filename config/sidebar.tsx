@@ -19,7 +19,7 @@ export const NavItems = () => {
       items: [
         {
           id: 0,
-          name: "Welcome to JavaScript Simplified",
+          name: "Welcome to JS Simplified",
           href: "/",
           active: isNavItemActive(pathname, "/"),
           access: null
@@ -31,49 +31,63 @@ export const NavItems = () => {
       items: [
         {
           id: 1,
-          name: "Introduction to JavaScript",
+          name: "Introduction",
           href: "/fundamentals/intro",
           active: isNavItemActive(pathname, "/fundamentals/intro"),
           access: AccessLevel.PUBLIC
         },
         {
           id: 2,
-          name: "Variables and Data Types",
+          name: "Variables",
           href: "/fundamentals/variables",
           active: isNavItemActive(pathname, "/fundamentals/variables"),
           access: AccessLevel.PUBLIC
         },
         {
           id: 3,
-          name: "Operators and Expressions",
+          name: "Data types",
+          href: "/fundamentals/variables",
+          active: isNavItemActive(pathname, "/fundamentals/variables"),
+          access: AccessLevel.PUBLIC
+        },
+        {
+          id: 4,
+          name: "Operators",
           href: "/fundamentals/operators",
           active: isNavItemActive(pathname, "/fundamentals/operators"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 4,
+          id: 5,
+          name: "Expressions",
+          href: "/fundamentals/operators",
+          active: isNavItemActive(pathname, "/fundamentals/operators"),
+          access: AccessLevel.FREE_WITH_LOGIN
+        },
+        {
+          id: 6,
           name: "Conditionals",
           href: "/fundamentals/conditionals",
           active: isNavItemActive(pathname, "/fundamentals/conditionals"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 5,
+          id: 7,
           name: "Loops",
           href: "/fundamentals/loops",
           active: isNavItemActive(pathname, "/fundamentals/loops"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 6,
+          id: 8,
           name: "Functions",
           href: "/fundamentals/functions",
           active: isNavItemActive(pathname, "/fundamentals/functions"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 7,
-          name: "Function Expressions and Arrow Functions",
+          id: 9,
+          name: "Function Expressions",
           href: "/fundamentals/function-expressions",
           active: isNavItemActive(
             pathname,
@@ -82,21 +96,21 @@ export const NavItems = () => {
           access: AccessLevel.PUBLIC
         },
         {
-          id: 8,
+          id: 10,
           name: "Arrays",
           href: "/fundamentals/arrays",
           active: isNavItemActive(pathname, "/fundamentals/arrays"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 9,
+          id: 11,
           name: "Objects",
           href: "/fundamentals/objects",
           active: isNavItemActive(pathname, "/fundamentals/objects"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 10,
+          id: 12,
           name: "Strings",
           href: "/fundamentals/strings",
           active: isNavItemActive(pathname, "/fundamentals/strings"),
@@ -108,56 +122,56 @@ export const NavItems = () => {
       groupName: "Intermediate Concepts",
       items: [
         {
-          id: 11,
+          id: 13,
           name: "Scope and Hoisting",
           href: "/intermediate/scope-hoisting",
           active: isNavItemActive(pathname, "/intermediate/scope-hoisting"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 12,
+          id: 14,
           name: "Closures",
           href: "/intermediate/closures",
           active: isNavItemActive(pathname, "/intermediate/closures"),
           access: AccessLevel.PAID
         },
         {
-          id: 13,
+          id: 15,
           name: "Maps",
           href: "/intermediate/maps",
           active: isNavItemActive(pathname, "/intermediate/maps"),
           access: AccessLevel.PAID
         },
         {
-          id: 14,
+          id: 16,
           name: "Sets",
           href: "/intermediate/sets",
           active: isNavItemActive(pathname, "/intermediate/sets"),
-          access: AccessLevel.PUBLIC
+          access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 15,
+          id: 17,
           name: "Reference Behavior",
           href: "/intermediate/mutability",
           active: isNavItemActive(pathname, "/intermediate/mutability"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 16,
-          name: "The 'this' Keyword",
+          id: 18,
+          name: "This keyword",
           href: "/intermediate/this",
           active: isNavItemActive(pathname, "/intermediate/this"),
+          access: AccessLevel.PAID
+        },
+        {
+          id: 19,
+          name: "Ecmascript",
+          href: "/intermediate/es6-features",
+          active: isNavItemActive(pathname, "/intermediate/es6-features"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 17,
-          name: "ES6+ Features",
-          href: "/intermediate/es6-features",
-          active: isNavItemActive(pathname, "/intermediate/es6-features"),
-          access: AccessLevel.PUBLIC
-        },
-        {
-          id: 18,
+          id: 20,
           name: "Destructuring",
           href: "/intermediate/destructuring",
           active: isNavItemActive(pathname, "/intermediate/destructuring"),
@@ -169,63 +183,63 @@ export const NavItems = () => {
       groupName: "Advanced",
       items: [
         {
-          id: 19,
-          name: "Asynchronous JavaScript",
+          id: 21,
+          name: "Asynchronous JS",
           href: "/advanced/async-js",
           active: isNavItemActive(pathname, "/advanced/async-js"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 20,
+          id: 22,
           name: "Async/Await",
           href: "/advanced/async-await",
           active: isNavItemActive(pathname, "/advanced/async-await"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 21,
-          name: "Event Loop ",
+          id: 23,
+          name: "Event Loop",
           href: "/advanced/event-loop",
           active: isNavItemActive(pathname, "/advanced/event-loop"),
           access: AccessLevel.PAID
         },
         {
-          id: 22,
+          id: 24,
           name: "Proxy Objects",
           href: "/advanced/proxy",
           active: isNavItemActive(pathname, "/advanced/proxy"),
           access: AccessLevel.PAID
         },
         {
-          id: 23,
+          id: 25,
           name: "Symbols",
           href: "/advanced/symbols",
           active: isNavItemActive(pathname, "/advanced/symbols"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
-          id: 24,
+          id: 26,
           name: "Error Handling",
           href: "/advanced/error-handling",
           active: isNavItemActive(pathname, "/advanced/error-handling"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 25,
+          id: 27,
           name: "Modules",
           href: "/advanced/modules",
           active: isNavItemActive(pathname, "/advanced/modules"),
           access: AccessLevel.PUBLIC
         },
         {
-          id: 26,
+          id: 28,
           name: "Classes and Prototypes",
           href: "/advanced/classes-prototypes",
           active: isNavItemActive(pathname, "/advanced/classes-prototypes"),
           access: AccessLevel.PAID
         },
         {
-          id: 27,
+          id: 29,
           name: "Functional Programming Concepts",
           href: "/advanced/functional-programming",
           active: isNavItemActive(pathname, "/advanced/functional-programming"),

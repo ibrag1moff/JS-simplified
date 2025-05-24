@@ -25,7 +25,7 @@ export default function Sidebar() {
     <div
       className={`flex flex-col gap-12 bg-[#fff] dark:bg-body border-b-6 md:border-r-6 border-[#e5e5e5] dark:border-hover md:h-screen overflow-auto ${
         isExpanded
-          ? "absolute left-0 top-0 bottom-0 right-0 z-10 md:static md:w-110 p-6"
+          ? "absolute left-0 top-0 bottom-0 right-0 z-10 md:static md:w-140 lg:w-110 p-6"
           : "relative w-full md:w-20 p-1 h-max"
       }`}
     >
