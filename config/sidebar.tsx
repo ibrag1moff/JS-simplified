@@ -180,7 +180,7 @@ export const NavItems = () => {
           name: "Async/Await",
           href: "/advanced/async-await",
           active: isNavItemActive(pathname, "/advanced/async-await"),
-          access: AccessLevel.PUBLIC
+          access: AccessLevel.FREE_WITH_LOGIN
         },
         {
           id: 21,
@@ -229,7 +229,7 @@ export const NavItems = () => {
           name: "Functional Programming Concepts",
           href: "/advanced/functional-programming",
           active: isNavItemActive(pathname, "/advanced/functional-programming"),
-          access: AccessLevel.PUBLIC
+          access: AccessLevel.PAID
         }
       ]
     }

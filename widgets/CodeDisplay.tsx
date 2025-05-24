@@ -12,7 +12,7 @@ const CodeDisplay = ({ code }: { code: string }) => {
   return (
     <div className="px-2 bg-primary/10 border border-primary shadow-custom shadow-primary rounded-lg my-8">
       <pre className="text-white overflow-x-auto !bg-transparent">
-        <code className="language-js">{code}</code>
+        <code className="language-js !font-sans">{code}</code>
       </pre>
     </div>
   );

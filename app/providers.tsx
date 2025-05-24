@@ -6,6 +6,7 @@ import Popup from "@/components/Popup";
 import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
+import { ToastContainer } from "react-toastify";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export default function Providers({ children }: { children: ReactNode }) {
       <ThemeProvider attribute="class" defaultTheme="dark">
         <CookiesProvider>
           <PopupProvider>
+            <ToastContainer />
             <Popup />
             {children}
           </PopupProvider>

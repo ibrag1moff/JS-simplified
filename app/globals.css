@@ -38,3 +38,7 @@ ul {
 *::marker {
   @apply text-primary/60;
 }
+
+.notifySuccess {
+  @apply !bg-primary;
+}

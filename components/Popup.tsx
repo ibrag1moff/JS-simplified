@@ -1,11 +1,22 @@
 "use client";
 import { usePopup } from "@/context/popupContext";
 import { useAuth } from "@/hooks/useAuth";
+import { notifyError, notifySuccess } from "@/utils/notifications";
 
 export default function Popup() {
   const { isPopupOpen } = usePopup();
 
   const { handleGoogleLogin } = useAuth();
+
+  const handleLogin = async () => {
+    try {
+      await handleGoogleLogin();
+      notifySuccess("You have been logged in!");
+    } catch (e) {
+      notifyError();
+      console.error(e);
+    }
+  };
 
   return (
     <div
@@ -26,7 +37,7 @@ export default function Popup() {
           <span className="text-primary ml-1">idempotent</span> 😄
         </p>
         <button
-          onClick={handleGoogleLogin}
+          onClick={handleLogin}
           className="bg-primary rounded-xl py-2 px-8 font-medium  cursor-pointer"
         >
           Login with Google

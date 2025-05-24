@@ -25,7 +25,7 @@ export default function Sidebar() {
     <div
       className={`flex flex-col gap-12 bg-[#fff] dark:bg-body border-b-6 md:border-r-6 border-[#e5e5e5] dark:border-hover md:h-screen overflow-auto ${
         isExpanded
-          ? "absolute left-0 top-0 bottom-0 right-0 z-10 md:static md:w-90 p-6"
+          ? "absolute left-0 top-0 bottom-0 right-0 z-10 md:static md:w-110 p-6"
           : "relative w-full md:w-20 p-1 h-max"
       }`}
     >
@@ -70,7 +70,7 @@ export default function Sidebar() {
                 <Link
                   href={item.href}
                   key={item.id}
-                  className={`flex items-center  gap-2 border-b border-[#e5e5e5] dark:border-hover text-black dark:text-white py-2 xl:hover:bg-[#e5e5e5] dark:xl:hover:bg-hover rounded ${
+                  className={`flex items-center pr-1  gap-2 border-b border-[#e5e5e5] dark:border-hover text-black dark:text-white py-2 xl:hover:bg-[#e5e5e5] dark:xl:hover:bg-hover rounded ${
                     isExpanded ? "block" : "hidden"
                   } ${
                     item.active &&
@@ -92,7 +92,7 @@ export default function Sidebar() {
                     className={
                       item.access === AccessLevel.PUBLIC ||
                       item.access === AccessLevel.FREE_WITH_LOGIN
-                        ? "py-1 px-2 capitalize rounded text-[11px] border border-primary font-medium  tracking-[1px]"
+                        ? "py-1 px-2 capitalize rounded text-[11px] text-center border border-primary font-medium  tracking-[1px]"
                         : "hidden"
                     }
                   >
