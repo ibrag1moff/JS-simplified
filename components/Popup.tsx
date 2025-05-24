@@ -6,11 +6,11 @@ import { notifyError, notifySuccess } from "@/utils/notifications";
 export default function Popup() {
   const { isPopupOpen } = usePopup();
 
-  const { handleGoogleLogin } = useAuth();
+  const { handleGoogleLogin, handleGithubLogin } = useAuth();
 
-  const handleLogin = async () => {
+  const handleLogin = async (loginFunction: () => void) => {
     try {
-      await handleGoogleLogin();
+      await loginFunction();
       notifySuccess("You have been logged in!");
     } catch (e) {
       notifyError();
@@ -37,10 +37,16 @@ export default function Popup() {
           <span className="text-primary ml-1">idempotent</span> 😄
         </p>
         <button
-          onClick={handleLogin}
+          onClick={() => handleLogin(handleGoogleLogin)}
           className="bg-primary !text-white rounded-xl py-2 px-8 font-medium  cursor-pointer"
         >
           Login with Google
+        </button>
+        <button
+          onClick={() => handleLogin(handleGithubLogin)}
+          className="bg-primary !text-white rounded-xl py-2 px-8 font-medium  cursor-pointer"
+        >
+          Login with Github
         </button>
       </div>
     </div>
