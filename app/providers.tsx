@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <Provider store={store}>
-      <ThemeProvider attribute="class" defaultTheme="dark">
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <CookiesProvider>
           <PopupProvider>
             <ToastContainer />

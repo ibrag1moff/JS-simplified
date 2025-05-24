@@ -96,7 +96,7 @@ export default function Sidebar() {
                         : "hidden"
                     }
                   >
-                    {item.access}
+                    <span className="text-primary">{item.access}</span>
                   </h2>
                 </Link>
               ))}
