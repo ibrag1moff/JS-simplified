@@ -22,7 +22,7 @@ export const notifySuccess = (message: string) => {
 };
 
 export const notifyError = (message: string = "Unknown error occured.") => {
-  toast.success(message, {
+  toast.error(message, {
     position: "bottom-center",
     autoClose: 3000,
     hideProgressBar: false,
