@@ -46,8 +46,8 @@ export const NavItems = () => {
         {
           id: 3,
           name: "Data types",
-          href: "/fundamentals/variables",
-          active: isNavItemActive(pathname, "/fundamentals/variables"),
+          href: "/fundamentals/data-types",
+          active: isNavItemActive(pathname, "/fundamentals/data-types"),
           access: AccessLevel.PUBLIC
         },
         {
@@ -60,8 +60,8 @@ export const NavItems = () => {
         {
           id: 5,
           name: "Expressions",
-          href: "/fundamentals/operators",
-          active: isNavItemActive(pathname, "/fundamentals/operators"),
+          href: "/fundamentals/expressions",
+          active: isNavItemActive(pathname, "/fundamentals/expressions"),
           access: AccessLevel.FREE_WITH_LOGIN
         },
         {
