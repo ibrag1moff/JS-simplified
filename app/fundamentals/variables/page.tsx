@@ -8,169 +8,144 @@ export default function VariablesPage() {
     <Chapter>
       <SectionTitle title="Variables" />
       <p>
-        In every programming language, <span>variables</span> are essential.
-        They’re like labeled boxes where you can <span>store</span> and{" "}
-        <span>manage</span> data. In JavaScript, variables help us keep track of
-        information like names, scores, settings, or any kind of value that
-        might change as the program runs. code.
+        In every programming language, variables are essential. They’re like
+        labeled boxes where you can store and manage data. In JavaScript,
+        variables help us keep track of information like names, scores,
+        settings, or any kind of value that might change as the program runs.
+        code.
       </p>
 
       <Article title="What are Variables?">
         <p>
-          A variable is like a <span>container</span> that holds data. You can
-          store different kinds of values in these containers, and you can
-          change the data inside them as needed.
+          A variable is like a container that holds data. You can store
+          different kinds of values in these containers, and you can change the
+          data inside them as needed.
         </p>
       </Article>
 
       <Article>
         <p>
-          To declare a <span>variable</span> in JavaScript, you use keywords
-          like let, const, or var.
+          To declare a variable in JavaScript, you use keywords like let, const,
+          or var.
         </p>
 
         <CodeDisplay
-          code={`
-let name = "Alice"; 
+          code={`let name = "Alice"; 
 const age = 30;     
-var city = "Baku";  
-            `}
+var city = "Baku";`}
         />
       </Article>
 
       <Article title="let – Flexible and Modern">
-        <p>
-          Use <span>let</span> when you expect the value <span>to change</span>{" "}
-          later.
-        </p>
+        <p>Use let when you expect the value to change later.</p>
         <CodeDisplay
-          code={`
-let age = 18;
+          code={`let age = 18;
 age = 25
 
-console.log(age); // 25
-
-`}
+console.log(age); // 25`}
         />
       </Article>
 
       <Article title="const – Constants That Don’t Change">
-        <p>
-          Use <span>const</span> for values that should <span>stay</span> the
-          same.
-        </p>
+        <p>Use const for values that should stay the same.</p>
         <CodeDisplay
-          code={`
-const name = "Alice";
-console.log(name); // "Alice"
-`}
+          code={`const name = "Alice";
+console.log(name); // "Alice"`}
         />
 
         <p>
-          If you try to change a <span>const</span> variable, JavaScript will
-          give you an <span>error.</span>
+          If you try to change a const variable, JavaScript will give you an
+          error.
         </p>
 
         <CodeDisplay
-          code={`
-const age = 18;
+          code={`const age = 18;
 age = 25;
-console.log(age); // Error: Assignment to constant variable.
-  `}
+console.log(age); // Error: Assignment to constant variable.`}
         />
       </Article>
 
       <Article title="var – The Old Way">
         <p>
-          var is still valid but has <span>confusing behavior</span> because of
-          hoisting and function scope. We’ll <span>explore</span> this later,
-          but for now, prefer <span>let</span> or <span>const.</span>
+          var is still valid but has confusing behavior because of hoisting and
+          function scope. We’ll explore this later, but for now, prefer let or
+          const.
         </p>
 
         <p>
-          Declaring variables with <span>var keyword</span> is avoided in modern
-          JavaScript.
+          Declaring variables with var keyword is avoided in modern JavaScript.
         </p>
       </Article>
 
       <Article title="Naming Conventions for Variables">
         <p>
-          In Javascript you <span>can name</span> your variables whatever you
-          like, but it is more <span>professional</span> to stick with so called{" "}
-          <span>Naming conventions.</span>
+          In Javascript you can name your variables whatever you like, but it is
+          more professional to stick with so called Naming conventions.
         </p>
 
         <p>
           Naming variables is not just about following rules — it’s also about
-          writing code that’s <span>clear,</span> <span>consistent,</span> and{" "}
-          <span>easy to read.</span> Different programming communities use
-          different naming conventions to keep things <span>organized.</span>{" "}
-          Here are the <span>three</span> most common styles you’ll encounter in
-          JavaScript:
+          writing code that’s clear, consistent, and easy to read. Different
+          programming communities use different naming conventions to keep
+          things organized. Here are the three most common styles you’ll
+          encounter in JavaScript:
         </p>
       </Article>
 
       <Article title="1. camelCase">
         <p>
-          The fist word in <span>camelCase</span> should be all{" "}
-          <span>lowercase.</span> Each following word starts with a{" "}
-          <span>capital letter.</span> Do not use spaces or underscores.
+          The fist word in camelCase should be all lowercase. Each following
+          word starts with a capital letter. Do not use spaces or underscores.
         </p>
 
         <CodeDisplay
-          code={`
-let userName;
+          code={`let userName;
 let totalPrice;
-let isLoggedIn;
-          `}
+let isLoggedIn;`}
         />
 
         <p>
-          camelCase is <span>the most popular convention</span> for variables
-          and function names in JavaScript. For example, built-in JavaScript
-          methods like getElementById use camelCase.
+          camelCase is the most popular convention for variables and function
+          names in JavaScript. For example, built-in JavaScript methods like
+          getElementById use camelCase.
         </p>
       </Article>
 
       <Article title="2. PascalCase">
         <p>
-          Similar to <span>camelCase,</span> but the first letter is also{" "}
-          <span>capitalized.</span> Do not use spaces or underscores.
+          Similar to camelCase, but the first letter is also capitalized. Do not
+          use spaces or underscores.
         </p>
 
         <CodeDisplay
-          code={`
-class Car {
+          code={`class Car {
   constructor(make, model) {
     this.make = make;
     this.model = model;
   }
-}
-          `}
+}`}
         />
 
         <p>
           PascalCase is usually reserved for naming classes, constructors, or
-          <span> React components.</span>
+          React components.
         </p>
       </Article>
 
       <Article title="3. SNAKE_CASE">
         <p>
-          All letters in <span>SNAKE_CASE</span> are <span>uppercase.</span>{" "}
-          Words are separated by <span>underscores.</span>
+          All letters in SNAKE_CASE are uppercase. Words are separated by
+          underscores.
         </p>
 
         <CodeDisplay
-          code={`
-const API_KEY = "123456";
-const MAX_VALUE = 100;
-          `}
+          code={`const API_KEY = "123456";
+const MAX_VALUE = 100;`}
         />
 
         <p>
-          SNAKE_CASE is commonly used for <span>constants</span> — values that
-          should not change during the program execution.
+          SNAKE_CASE is commonly used for constants — values that should not
+          change during the program execution.
         </p>
       </Article>
 

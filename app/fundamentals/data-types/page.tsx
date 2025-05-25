@@ -12,10 +12,9 @@ export default function DataTypesPage() {
 
       <Article>
         <p>
-          In JavaScript, data types <span>define</span> the kind of value{" "}
-          <span>a variable can hold.</span> Understanding data types is crucial
-          because different types behave differently, and knowing them helps you
-          write better code.
+          In JavaScript, data types define the kind of value a variable can
+          hold. Understanding data types is crucial because different types
+          behave differently, and knowing them helps you write better code.
         </p>
 
         <p>There are two main categories of data types in JavaScript:</p>
@@ -26,7 +25,7 @@ export default function DataTypesPage() {
             that hold data directly.
           </li>
           <li>
-            <span className="font-bold">Reference types</span> — objects and
+            <span className="font-bold">Reference types </span> — objects and
             arrays that store collections or more complex data.
           </li>
         </ul>
@@ -38,9 +37,7 @@ export default function DataTypesPage() {
           copy them, you get a copy of the actual value.
         </p>
 
-        <p>
-          There are <span>7 primitive types</span> in JavaScript:
-        </p>
+        <p>There are 7 primitive types in JavaScript:</p>
       </Article>
 
       <Article title="String">
@@ -57,10 +54,8 @@ export default function DataTypesPage() {
         </p>
 
         <CodeDisplay
-          code={`
-const greeting = "Hello, world!";
-const singleQuote = 'JavaScript';
-            `}
+          code={`const greeting = "Hello, world!";
+const singleQuote = 'JavaScript';`}
         />
       </Article>
 
@@ -71,29 +66,25 @@ const singleQuote = 'JavaScript';
         </p>
 
         <CodeDisplay
-          code={`
-const age = 30;
+          code={`const age = 30;
 const price = 19.99;
 const negative = -5;
-const zero = 0;
-            `}
+const zero = 0;`}
         />
       </Article>
 
       <Article title="Boolean">
         <p>
           Boolean represents a logical entity that can be either true or false.
-          For a variable to be a type of boolean, simply use the literals{" "}
-          <span>true</span> or <span>false.</span>
+          For a variable to be a type of boolean, simply use the literals true
+          or false.
         </p>
 
         <p>Booleans commonly used in conditions and control flow</p>
 
         <CodeDisplay
-          code={`
-const isLoggedIn = true;
-const hasPaid = false;
-            `}
+          code={`const isLoggedIn = true;
+const hasPaid = false;`}
         />
       </Article>
 
@@ -101,28 +92,22 @@ const hasPaid = false;
         <p>
           A variable that has been declared but not yet assigned a value.
           Undefined is a type and also a value. JavaScript automatically assigns
-          undefined to <span>uninitialized variables.</span>
+          undefined to uninitialized variables.
         </p>
 
         <CodeDisplay
-          code={`
-let name;
-console.log(name);  // undefined
-            `}
+          code={`let name;
+console.log(name);  // undefined`}
         />
       </Article>
 
       <Article title="Null">
         <p>
           Represents the intentional absence of any object value.To get the
-          value null assign it <span>explicitly.</span>
+          value null assign it explicitly.
         </p>
 
-        <CodeDisplay
-          code={`
-let data = null;
-            `}
-        />
+        <CodeDisplay code={`let data = null;`} />
 
         <p>Null means &#8221;no value&#8221; or &#8221;empty&#8221;</p>
 
@@ -137,12 +122,10 @@ let data = null;
         </p>
 
         <CodeDisplay
-          code={`
-const id1 = Symbol("id");
+          code={`const id1 = Symbol("id");
 const id2 = Symbol("id");
 
-console.log(id1 === id2); // false
-            `}
+console.log(id1 === id2); // false`}
         />
 
         <p>As you can see here all symbols are unique.</p>
@@ -151,37 +134,32 @@ console.log(id1 === id2); // false
       <Article title="BigInt">
         <p>
           Represents integers larger than the safe integer limit for Numbers
-          (2^53 - 1). For a integer to be a type of BigInt, you need to add{" "}
-          <span>n</span> at the end of the number or use the BigInt()
-          constructor
+          (2^53 - 1). For a integer to be a type of BigInt, you need to add n at
+          the end of the number or use the BigInt() constructor
         </p>
 
         <CodeDisplay
-          code={`
-let bigNumber = 123456789012345678901234567890n;
-let anotherBig = BigInt("900719925474099123456789");
-            `}
+          code={`let bigNumber = 123456789012345678901234567890n;
+let anotherBig = BigInt("900719925474099123456789");`}
         />
 
         <p>
           BigInt and Number are different types and cannot be mixed in
-          operations. Use BigInt when working with{" "}
-          <span>really large integers</span> (cryptography, large counters).
+          operations. Use BigInt when working with really large integers
+          (cryptography, large counters).
         </p>
       </Article>
 
       <Article title="Important note about Primitives">
         <p>
-          Primitive values <span>cannot</span> be changed. If you change a
-          primitive, a new value is created.
+          Primitive values cannot be changed. If you change a primitive, a new
+          value is created.
         </p>
 
         <CodeDisplay
-          code={`
-let a = 10;
+          code={`let a = 10;
 let b = a;   
-a = 20;    
-            `}
+a = 20;`}
         />
 
         <p>In this example, b = 10, then a changes to 20 but b remains 10</p>
@@ -194,18 +172,15 @@ a = 20;
       <Article title="2. Reference Data Type (Objects)">
         <p>
           Reference types store collections of data or more complex entities.
-          Instead of storing the actual value, variables{" "}
-          <span>hold a reference</span> (or pointer) to the location{" "}
-          <span>in memory</span> where the object is stored.
+          Instead of storing the actual value, variables hold a reference (or
+          pointer) to the location in memory where the object is stored.
         </p>
 
         <CodeDisplay
-          code={`
-const person = {
+          code={`const person = {
   name: "Alice",
   age: 30,
-};
-            `}
+};`}
         />
 
         <p>
@@ -229,14 +204,10 @@ console.log(obj1.name);  // "Bob"
       </Article>
 
       <Article title=" Checking Data Types">
-        <p>
-          You can check the type of a value using the{" "}
-          <span>typeof operator:</span>
-        </p>
+        <p>You can check the type of a value using the typeof operator:</p>
 
         <CodeDisplay
-          code={`
-console.log(typeof "hello");      // "string"
+          code={`console.log(typeof "hello");      // "string"
 console.log(typeof 42);           // "number"
 console.log(typeof true);         // "boolean"
 console.log(typeof undefined);    // "undefined"
@@ -245,8 +216,7 @@ console.log(typeof Symbol());     // "symbol"
 console.log(typeof 10n);          // "bigint"
 console.log(typeof {});           // "object"
 console.log(typeof []);           // "object"  (arrays are objects)
-console.log(typeof function(){}); // "function"
-            `}
+console.log(typeof function(){}); // "function"`}
         />
 
         <ProTip title="null is a primitive representing no value, but typeof null returns object due to a legacy JavaScript bug. Just remember null means an intentionally empty value." />
@@ -254,12 +224,11 @@ console.log(typeof function(){}); // "function"
 
       <Article>
         <p>
-          Data types are the <span>foundation</span> for understanding how your
-          data is stored and manipulated in JavaScript. <span>Primitives</span>{" "}
-          are simple, immutable values stored directly, while{" "}
-          <span>reference types</span> point to complex objects in memory.
-          Knowing this distinction helps avoid common bugs and write efficient,
-          predictable code.
+          Data types are the foundation for understanding how your data is
+          stored and manipulated in JavaScript. Primitives are simple, immutable
+          values stored directly, while reference types point to complex objects
+          in memory. Knowing this distinction helps avoid common bugs and write
+          efficient, predictable code.
         </p>
       </Article>
     </Chapter>

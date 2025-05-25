@@ -1,95 +1,62 @@
 import SectionTitle from "@/widgets/SectionTitle";
 import CodeDisplay from "@/widgets/CodeDisplay";
 import Article from "@/components/Article";
+import Chapter from "@/components/Chapter";
 
 export default function ControlFlowPage() {
   return (
-    <div className="flex flex-col gap-24 px-5">
+    <Chapter>
       <SectionTitle title="Conditionals" />
 
-      <div className="flex flex-col gap-4">
+      <Article>
         <p>
-          Control Flow is the <span>order</span> in which the computer{" "}
-          <span>executes </span>
-          statements in a script.
+          When writing programs, we often need to make decisions. A user might
+          be logged in or not, a number might be positive or negative, a value
+          might match a certain condition — and we need to react accordingly. In
+          JavaScript, this ability to make decisions is powered by conditional
+          statements.
         </p>
 
         <p>
-          Think of a story: It usually starts at the <span>beginning, </span>
-          goes through the <span>middle,</span> and ends at the{" "}
-          <span>last</span> page. Similarly, a program in{" "}
-          <span>JavaScript</span> is executed from top to bottom, one line at a
-          time. But just like a story can have plot twists and{" "}
-          <span>decisions,</span>
-          JavaScript can <span>change</span> the order of execution using
-          <span>control flow</span> statements.
+          Conditional logic allows your code to follow different paths based on
+          specific criteria. In this chapter, we’ll explore how JavaScript lets
+          us express conditions using if, else if, and else statements, as well
+          as the switch statement and the ternary operator.
         </p>
-      </div>
+      </Article>
 
-      <div className="flex flex-col gap-4">
-        <p>
-          JavaScript provides <span>several </span> control flow statements to
-          make decisions, repeat actions, and jump to <span>different </span>{" "}
-          parts of your code. The main <span>categories </span> are:
-        </p>
-
-        <ul>
-          <li>Conditional statements – Make decisions.</li>
-          <li>Loops – Repeat actions.</li>
-          <li>Jump statements – Break out or skip parts of code.</li>
-        </ul>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3> 🧐 Conditional Statements (Decisions)</h3>
-
-        <p>
-          These <span>allow </span> your program to make <span>decisions </span>{" "}
-          based on conditions.
-        </p>
-
-        <h3 className="mt-2">If statement</h3>
+      <Article title="If statement">
         <CodeDisplay
-          code={`
-let age = 18;
+          code={`let age = 18;
 
 if (age >= 18) {
   console.log("You are an adult.");
-}  
-        `}
+}`}
         />
 
         <p>
-          👉 If the condition <span>age &gt;= 18</span> is true, the code inside
-          the {} block will run.
+          👉 If the condition age &gt;= 18 is true, the code inside the {} block
+          will run.
         </p>
-      </div>
+      </Article>
 
-      <div className="flex flex-col gap-4">
-        <h3>If...else statement</h3>
+      <Article title="If...else statement">
         <CodeDisplay
-          code={`
-let age = 16;
+          code={`let age = 16;
 
 if (age >= 18) {
   console.log("You are an adult.");
 } else {
   console.log("You are a minor.");
-}
-`}
+}`}
         />
 
-        <p>
-          👉 The <span>else</span> block runs if the if condition is{" "}
-          <span>false.</span>
-        </p>
-      </div>
+        <p>👉 The else block runs if the if condition is false.</p>
+      </Article>
 
-      <div className="flex flex-col gap-4">
-        <h3>If...else if...else</h3>
+      <Article title="Else...if Else...if">
         <CodeDisplay
-          code={`
-let score = 75;
+          code={`let score = 75;
 
 if (score >= 90) {
   console.log("Grade A");
@@ -99,23 +66,15 @@ if (score >= 90) {
   console.log("Grade C");
 } else {
   console.log("Fail");
-}
-`}
+}`}
         />
-        <p>
-          👉 This lets you check <span>multiple</span> conditions in order.
-        </p>
-      </div>
+        <p>👉 This lets you check multiple conditions in order.</p>
+      </Article>
 
-      <div className="flex flex-col gap-4">
-        <h3>Switch statement</h3>
-        <p>
-          Used when you have <span>many</span> possible <span>values</span> for
-          a variable.
-        </p>
+      <Article title="Switch statement">
+        <p>Used when you have many possible values for a variable.</p>
         <CodeDisplay
-          code={`
-let day = "Monday";
+          code={`let day = "Monday";
 
 switch (day) {
   case "Monday":
@@ -129,165 +88,54 @@ switch (day) {
     break;
   default:
     console.log("Another day");
-}
-        `}
+}`}
         />
         <p>
           👉 break is important – it stops the execution from going to the next
           case.
         </p>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3> 🔁 Loops (Repetition)</h3>
-        <p>
-          Loops let you repeat code <span>multiple</span> times.
-        </p>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3>For loop</h3>
-        <CodeDisplay
-          code={`
-for (let i = 0; i < 5; i++) {
-  console.log("Number:", i);
-}
-`}
-        />
-
-        <p>Explanation:</p>
-
-        <ul>
-          <li> i = 0: starting point.</li>
-          <li> i &lt; 5: condition to keep looping.</li>
-          <li> i++: increase i by 1 each loop. </li>
-        </ul>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3> While loop</h3>
-        <CodeDisplay
-          code={`
-let i = 0;
-
-while (i < 5) {
-  console.log("Counting:", i);
-  i++;
-}
-`}
-        />
-
-        <p>
-          Use this when you <span>don’t</span> know how many times the loop
-          should <span>run</span> in advance.
-        </p>
-      </div>
-
-      <div className="flex flex-col gap-4">
-        <h3>Do...while loop</h3>
-
-        <CodeDisplay
-          code={`
-let i = 0;
-
-do {
-  console.log("Run at least once:", i);
-  i++;
-} while (i < 5);
-     `}
-        />
-
-        <p>
-          This loop <span>runs at least once,</span> even if the condition is
-          false the first time.
-        </p>
-      </div>
-
-      <Article title={"⛔ Jump Statements"}>
-        <h3>Break</h3>
-        <p>
-          Stops the <span>current</span> loop or switch.
-        </p>
-
-        <CodeDisplay
-          code={`
-for (let i = 0; i < 10; i++) {
-  if (i === 5) break;
-  console.log(i);
-}
-        `}
-        />
-
-        <p className="mb-4">
-          <span>Stops</span> printing when i is 5.
-        </p>
-
-        <h3>Continue</h3>
-
-        <p>
-          Skips the <span>current</span> loop iteration.
-        </p>
-
-        <CodeDisplay
-          code={`
-for (let i = 0; i < 5; i++) {
-  if (i === 2) continue;
-  console.log(i);
-}
-        `}
-        />
-
-        <p className="mb-4">
-          Prints all numbers <span>except</span> 2.
-        </p>
       </Article>
 
-      <Article title={"✨ Real Example"}>
+      <Article title="Ternary operator">
         <p>
-          Let’s say you are <span>checking</span> the number of apples:
+          JavaScript also has a concise way to write simple conditional
+          expressions: the ternary operator. It’s called “ternary” because it
+          involves three parts:
         </p>
 
         <CodeDisplay
-          code={`
-let apples = 3;
+          code={`condition ? expressionIfTrue : expressionIfFalse`}
+        />
 
-if (apples > 0) {
-  console.log("You have apples!");
-} else {
-  console.log("No apples.");
-}
-          `}
+        <p>Let’s look at an example:</p>
+
+        <CodeDisplay
+          code={`let age = 20;
+let canVote = age >= 18 ? "Yes" : "No";
+console.log(canVote);  // Yes`}
         />
 
         <p>
-          Then, maybe you want to <span>count</span> how many apples you eat:
+          The ternary operator evaluates the condition (age &gt;= 18). If it’s
+          true, it returns “Yes”; otherwise, it returns “No”. It’s best used for
+          short, simple decisions — for more complex logic, if/else is clearer.
         </p>
 
-        <CodeDisplay
-          code={`
-while (apples > 0) {
-  console.log("Eating an apple...");
-  apples--;
-}
-          `}
-        />
-
-        <p>Finally: </p>
+        <p>You can also use ternaries inside other expressions:</p>
 
         <CodeDisplay
-          code={`
-console.log("No more apples!");
-        `}
+          code={`console.log(isLoggedIn ? "Dashboard" : "Login page");`}
         />
       </Article>
 
       <Article>
         <p>
-          Control flow is the foundation of programming logic — it decides what
-          happens, when it happens, and how often it happens in your JavaScript
-          programs.
+          Conditional logic is at the heart of interactive, responsive programs.
+          Whether you’re writing a login system, calculating discounts, or
+          handling user input, you’ll use if, else if, else, switch, and ternary
+          expressions to control your application’s behavior.
         </p>
       </Article>
-    </div>
+    </Chapter>
   );
 }

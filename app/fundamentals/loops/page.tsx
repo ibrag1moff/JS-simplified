@@ -21,15 +21,14 @@ export default function LoopsPage() {
 
         <Article>
           <p>
-            Loops are one of the most <span>fundamental</span> constructs in
-            programming. They allow developers to <span>execute</span> a block
-            of code <span>repeatedly,</span> saving time, <span> reducing</span>{" "}
-            redundancy, and enhancing flexibility.
+            Loops are one of the most fundamental constructs in programming.
+            They allow developers to execute a block of code repeatedly, saving
+            time, reducing redundancy, and enhancing flexibility.
           </p>
 
           <p>
-            Imagine you’re asked to print numbers <span>from</span> 1{" "}
-            <span>to</span> 100. Would you really write:
+            Imagine you’re asked to print numbers from 1 to 100. Would you
+            really write:
           </p>
 
           <CodeDisplay
@@ -43,21 +42,20 @@ console.log(100);
 
           <p>
             In JavaScript, there are several types of loops that you can use to
-            <span> execute</span> a block of code repeatedly. Each loop serves a
-            different purpose and can be used based on the specific needs of
-            your program. There are <span>five</span> main types of loops in
-            JavaScript. Here they are: for, while, do...while, for...in, and
-            for...of.
+            execute a block of code repeatedly. Each loop serves a different
+            purpose and can be used based on the specific needs of your program.
+            There are five main types of loops in JavaScript. Here they are:
+            for, while, do...while, for...in, and for...of.
           </p>
         </Article>
 
         <Article title={"For loop"}>
           <p>
-            The for loop is one of the most <span>commonly used</span> loops in
-            JavaScript. It is ideal when you know in advance how many times you
-            want the <span>loop</span> to run. The for loop consists of{" "}
-            <span>three</span> parts: the initialization, the condition, and the
-            final expression (usually used to increment or decrement a counter).
+            The for loop is one of the most commonly used loops in JavaScript.
+            It is ideal when you know in advance how many times you want the
+            loop to run. The for loop consists of three parts: the
+            initialization, the condition, and the final expression (usually
+            used to increment or decrement a counter).
           </p>
 
           <CodeDisplay
@@ -69,12 +67,12 @@ for (let i = 1; i <= 100; i++) {
           />
 
           <p>
-            In this example, the loop starts with <span>i = 1,</span> continues
-            to run as long as <span>i</span> is less than or equal to 100, and
-            increments <span>i</span> by 1 after each iteration. This structure
-            makes the <span>for loop</span> perfect for situations where you’re
-            iterating through a known range of values, such as printing numbers,
-            accessing array elements, or repeating a task a set number of times.
+            In this example, the loop starts with i = 1, continues to run as
+            long as i is less than or equal to 100, and increments i by 1 after
+            each iteration. This structure makes the for loop perfect for
+            situations where you’re iterating through a known range of values,
+            such as printing numbers, accessing array elements, or repeating a
+            task a set number of times.
           </p>
         </Article>
 
@@ -82,10 +80,10 @@ for (let i = 1; i <= 100; i++) {
           <p>
             The while loop in JavaScript is used when you want to repeat a block
             of code an unknown number of times, but as long as a specific
-            <span> condition</span> remains true. Unlike the for loop, the while
-            loop only requires a condition to be checked before each iteration.
-            If the condition evaluates to true, the code inside the loop
-            executes; otherwise, the loop stops.
+            condition remains true. Unlike the for loop, the while loop only
+            requires a condition to be checked before each iteration. If the
+            condition evaluates to true, the code inside the loop executes;
+            otherwise, the loop stops.
           </p>
 
           <CodeDisplay
@@ -131,11 +129,10 @@ while (true) {
 
         <Article title={"Do...while"}>
           <p>
-            The <span>do...while loop</span> in JavaScript is similar to the{" "}
-            <span>while loop,</span> but with one key difference: it always
-            executes the code block <span>at least once,</span> regardless of
-            whether the condition is true or false. This is because the
-            condition is checked after the loop body has run.
+            The do...while loop in JavaScript is similar to the while loop, but
+            with one key difference: it always executes the code block at least
+            once, regardless of whether the condition is true or false. This is
+            because the condition is checked after the loop body has run.
           </p>
 
           <CodeDisplay
@@ -149,29 +146,25 @@ do {
           />
 
           <p>
-            In this example, even though <span>i</span> starts at 101 and the
-            condition <span>i &#8804; 100</span> is false, the message will
-            still be printed <span>once.</span> This behavior makes{" "}
-            <span>do...while</span> useful when you want the code inside the
-            loop to run at least once before the condition is{" "}
-            <span>evaluated.</span>
+            In this example, even though i starts at 101 and the condition i
+            &#8804; 100 is false, the message will still be printed once. This
+            behavior makes do...while useful when you want the code inside the
+            loop to run at least once before the condition is evaluated.
           </p>
 
           <p>
-            The main difference between <span>while</span> and{" "}
-            <span>do...while</span> is when the condition is checked—while
-            checks it before executing the loop body, while do...while checks it
-            after.
+            The main difference between while and do...while is when the
+            condition is checked—while checks it before executing the loop body,
+            while do...while checks it after.
           </p>
         </Article>
 
         <Article title={"For...in"}>
           <p>
-            The <span>for...in loop</span> in JavaScript is used to iterate over
-            the <span>enumerable</span> properties of an object. It’s especially
-            useful when you want to
-            <span> access</span> all the keys (or property names) in an object
-            one by one.
+            The for...in loop in JavaScript is used to iterate over the
+            enumerable properties of an object. It’s especially useful when you
+            want to access all the keys (or property names) in an object one by
+            one.
           </p>
 
           <CodeDisplay
@@ -189,31 +182,28 @@ for (let key in person) {
           />
 
           <p>
-            In this example, the <span>for...in loop</span> goes through each
-            key in the person object (name, age, city) and <span>logs</span>{" "}
-            both the key and its corresponding value.
+            In this example, the for...in loop goes through each key in the
+            person object (name, age, city) and logs both the key and its
+            corresponding value.
           </p>
 
           <p>
-            <span> For...in</span> is meant for <span>objects,</span> not
-            arrays. Although it can technically be used with arrays, it’s not{" "}
-            <span>recommended</span> because it iterates over all enumerable
-            properties, including inherited ones, and the order is not
-            guaranteed.
+            For...in is meant for objects, not arrays. Although it can
+            technically be used with arrays, it’s not recommended because it
+            iterates over all enumerable properties, including inherited ones,
+            and the order is not guaranteed.
           </p>
 
           <div className="flex flex-col gap-3 mt-6">
             <h3>forEach in Objects</h3>
 
             <p>
-              Although the <span>forEach()</span> method is designed for{" "}
-              <span>arrays,</span>
-              you can still use it with objects by combining it with{" "}
-              <span>Object.keys().</span> The Object.keys() method{" "}
-              <span>returns an array</span> of an object’s own enumerable
-              property names (keys), which you can then loop through using
-              forEach(). This approach allows you to perform actions on{" "}
-              <span>each key-value pair</span> in the object. For example:
+              Although the forEach() method is designed for arrays, you can
+              still use it with objects by combining it with Object.keys(). The
+              Object.keys() method returns an array of an object’s own
+              enumerable property names (keys), which you can then loop through
+              using forEach(). This approach allows you to perform actions on{" "}
+              each key-value pair in the object. For example:
             </p>
 
             <CodeDisplay
@@ -231,21 +221,18 @@ Object.keys(person).forEach(key => {
             />
 
             <p>
-              In this example, <span>Object.keys(person)</span> returns an array
-              like [&quot;name&quot;, &quot;age&quot;, &quot;city&quot;], and
-              <span> forEach() loops over each key,</span> allowing access to
-              both the key and its corresponding value. This is a{" "}
-              <span>clean</span> and <span>readable </span>
-              way to iterate over objects when you want to use modern array
-              methods.
+              In this example, Object.keys(person) returns an array like
+              [&quot;name&quot;, &quot;age&quot;, &quot;city&quot;], and
+              forEach() loops over each key, allowing access to both the key and
+              its corresponding value. This is a clean and readable way to
+              iterate over objects when you want to use modern array methods.
             </p>
 
             <p>
-              Also, we have <span>Object.values()</span> method in JavaScript{" "}
-              <span>returns an array</span>
-              containing the values of all enumerable properties of an object.
-              It’s useful when you only need to work with the values and not the
-              keys.
+              Also, we have Object.values() method in JavaScript returns an
+              array containing the values of all enumerable properties of an
+              object. It’s useful when you only need to work with the values and
+              not the keys.
             </p>
 
             <CodeDisplay
@@ -264,11 +251,10 @@ console.log(Object.values(person)); // ["John", 25, "Baku"]
 
         <Article title={"For...of"}>
           <p>
-            The <span>for...of loop</span> in JavaScript is used to{" "}
-            <span>iterate</span> over iterable objects, such as arrays, strings,
-            maps, sets, and more. Unlike <span>for...in,</span> which iterates
-            over property keys, for...of iterates directly over the values of
-            the iterable.
+            The for...of loop in JavaScript is used to iterate over iterable
+            objects, such as arrays, strings, maps, sets, and more. Unlike
+            for...in, which iterates over property keys, for...of iterates
+            directly over the values of the iterable.
           </p>
 
           <CodeDisplay
@@ -281,9 +267,7 @@ for (let num of numbers) {
         `}
           />
 
-          <p>
-            You can also use <span>for...of</span> with strings:
-          </p>
+          <p>You can also use for...of with strings:</p>
 
           <CodeDisplay
             code={`
@@ -294,19 +278,18 @@ for (let char of "Hello") {
           />
 
           <p>
-            For...of does not work on <span>plain objects directly,</span>{" "}
-            because objects are not iterable by default. If you want to iterate
-            over an object’s values or entries, you can use{" "}
-            <span>Object.values()</span> in combination with{" "}
-            <span>for...of.</span>
+            For...of does not work on plain objects directly, because objects
+            are not iterable by default. If you want to iterate over an object’s
+            values or entries, you can use Object.values() in combination with{" "}
+            for...of.
           </p>
         </Article>
 
         <Article>
           <p>
-            Loops are <span>essential tools</span> in JavaScript that help
-            automate repetitive tasks and make your code cleaner and more
-            efficient. Each type of loop has its own purpose and use case:
+            Loops are essential tools in JavaScript that help automate
+            repetitive tasks and make your code cleaner and more efficient. Each
+            type of loop has its own purpose and use case:
           </p>
 
           <ul>
@@ -321,27 +304,26 @@ for (let char of "Hello") {
             </li>
 
             <li>
-              <span className="font-bold">do...while loop </span> guarantees
-              that the code runs at least once before checking the condition.
+              <span className="font-bold">do...while</span> loop guarantees that
+              the code runs at least once before checking the condition.
             </li>
 
             <li>
-              <span className="font-bold">for...in loop</span> is used to
+              <span className="font-bold">for...in</span> loop is used to
               iterate over the keys of an object.
             </li>
 
             <li>
-              <span className="font-bold">for...of loop</span> is used to
+              <span className="font-bold">for...of</span> loop is used to
               iterate over the values of iterable objects like arrays and
               strings.
             </li>
           </ul>
 
           <p>
-            Additionally, while <span>forEach()</span> is an array method, it
-            can be used with objects by <span>converting</span> their keys,
-            values into <span>arrays</span> using Object.keys(),
-            Object.values().
+            Additionally, while forEach() is an array method, it can be used
+            with objects by converting their keys, values into arrays using
+            Object.keys(), Object.values().
           </p>
         </Article>
       </Chapter>
