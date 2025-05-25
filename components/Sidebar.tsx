@@ -9,7 +9,7 @@ import { usePopup } from "@/context/popupContext";
 import useViewportWidth from "@/hooks/useViewportWidth";
 
 export default function Sidebar() {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const width = useViewportWidth();
 

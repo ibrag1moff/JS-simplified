@@ -8,8 +8,9 @@ import {
 } from "firebase/auth";
 
 import { useCookies } from "react-cookie";
-import { useAppDispatch } from "@/hooks/redux";
-import { setUser } from "@/store/slices/userSlice";
+import { notifyError, notifySuccess } from "@/utils/notifications";
+import { fetchUser, logout } from "@/store/slices/userSlice";
+import { useAppDispatch } from "./redux";
 
 const providers = {
   google: new GoogleAuthProvider(),
@@ -19,7 +20,11 @@ const providers = {
 type Provider = keyof typeof providers;
 
 export const useAuth = () => {
-  const [, setCookie] = useCookies(["firebaseToken", "refreshToken"]);
+  const [, setCookie, removeCookie] = useCookies([
+    "firebaseToken",
+    "refreshToken",
+    "user"
+  ]);
   const { closePopup } = usePopup();
 
   const dispatch = useAppDispatch();
@@ -33,16 +38,21 @@ export const useAuth = () => {
         setCookie("firebaseToken", firebaseToken, { path: "/" });
         setCookie("refreshToken", user.refreshToken, { path: "/" });
 
+        const resultAction = await dispatch(fetchUser());
+
+        if (fetchUser.fulfilled.match(resultAction)) {
+          const userData = resultAction.payload;
+          console.log("User data fetched:", userData);
+          setCookie("user", JSON.stringify(userData), {
+            path: "/",
+            maxAge: 60 * 60 * 24 * 7,
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production"
+          });
+        }
+
         closePopup();
       }
-
-      dispatch(
-        setUser({
-          firebaseId: user.uid,
-          name: user.displayName || "",
-          email: user.email!
-        })
-      );
 
       await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
@@ -53,14 +63,51 @@ export const useAuth = () => {
           withCredentials: true
         }
       );
+
+      notifySuccess("You have been logged in!");
     } catch (e) {
       console.error("Error logging in", e);
-      throw e;
+      notifyError();
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      const currentUser = firebaseAuth.currentUser;
+      if (!currentUser) {
+        notifyError("No user is currently logged in.");
+        return;
+      }
+      const token = await currentUser.getIdToken();
+
+      await firebaseAuth.signOut();
+
+      removeCookie("firebaseToken", { path: "/" });
+      removeCookie("refreshToken", { path: "/" });
+      dispatch(logout());
+
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`,
+        {
+          token
+        },
+        {
+          withCredentials: true
+        }
+      );
+
+      closePopup();
+
+      notifySuccess("You have been logged out!");
+    } catch (e) {
+      console.error("Error logging out", e);
+      notifyError();
     }
   };
 
   return {
     handleGoogleLogin: () => handleLogin("google"),
-    handleGithubLogin: () => handleLogin("github")
+    handleGithubLogin: () => handleLogin("github"),
+    handleLogout
   };
 };

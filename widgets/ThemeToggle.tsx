@@ -11,8 +11,6 @@ export default function ThemeToggle() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
-  console.log(theme);
-
   return (
     <button className="cursor-pointer" onClick={toggleTheme}>
       {theme === "dark" ? <BsMoon size={25} /> : <FiSun size={25} />}
