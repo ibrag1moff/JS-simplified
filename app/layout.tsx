@@ -6,16 +6,16 @@ import Providers from "./providers";
 
 const rubik = Rubik({
   subsets: ["latin"],
-  weight: ["400", "500", "700"]
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
   title: "JavaScript Simplified",
-  description: "The Practical Guide for Real-World Development"
+  description: "The Practical Guide for Real-World Development",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {

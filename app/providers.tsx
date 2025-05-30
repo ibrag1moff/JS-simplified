@@ -7,17 +7,20 @@ import { CookiesProvider } from "react-cookie";
 import { Provider } from "react-redux";
 import { store } from "@/store/store";
 import { ToastContainer } from "react-toastify";
+import { AuthProvider } from "@/widgets/AuthProvider";
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <Provider store={store}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <CookiesProvider>
-          <PopupProvider>
-            <ToastContainer />
-            <Popup />
-            {children}
-          </PopupProvider>
+          <AuthProvider>
+            <PopupProvider>
+              <ToastContainer />
+              <Popup />
+              {children}
+            </PopupProvider>
+          </AuthProvider>
         </CookiesProvider>
       </ThemeProvider>
     </Provider>

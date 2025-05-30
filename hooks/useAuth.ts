@@ -4,7 +4,7 @@ import axios from "axios";
 import {
   GithubAuthProvider,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
 } from "firebase/auth";
 
 import { useCookies } from "react-cookie";
@@ -14,17 +14,13 @@ import { useAppDispatch } from "./redux";
 
 const providers = {
   google: new GoogleAuthProvider(),
-  github: new GithubAuthProvider()
+  github: new GithubAuthProvider(),
 };
 
 type Provider = keyof typeof providers;
 
 export const useAuth = () => {
-  const [, setCookie, removeCookie] = useCookies([
-    "firebaseToken",
-    "refreshToken",
-    "user"
-  ]);
+  const [, setCookie, removeCookie] = useCookies(["user_token"]);
   const { closePopup } = usePopup();
 
   const dispatch = useAppDispatch();
@@ -35,20 +31,13 @@ export const useAuth = () => {
       const firebaseToken = await user.getIdToken();
 
       if (firebaseToken) {
-        setCookie("firebaseToken", firebaseToken, { path: "/" });
-        setCookie("refreshToken", user.refreshToken, { path: "/" });
+        setCookie("user_token", firebaseToken, { path: "/" });
 
         const resultAction = await dispatch(fetchUser());
 
         if (fetchUser.fulfilled.match(resultAction)) {
           const userData = resultAction.payload;
           console.log("User data fetched:", userData);
-          setCookie("user", JSON.stringify(userData), {
-            path: "/",
-            maxAge: 60 * 60 * 24 * 7,
-            sameSite: "strict",
-            secure: process.env.NODE_ENV === "production"
-          });
         }
 
         closePopup();
@@ -57,10 +46,10 @@ export const useAuth = () => {
       await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
         {
-          token: firebaseToken
+          token: firebaseToken,
         },
         {
-          withCredentials: true
+          withCredentials: true,
         }
       );
 
@@ -82,17 +71,16 @@ export const useAuth = () => {
 
       await firebaseAuth.signOut();
 
-      removeCookie("firebaseToken", { path: "/" });
-      removeCookie("refreshToken", { path: "/" });
+      removeCookie("user_token", { path: "/" });
       dispatch(logout());
 
       await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/logout`,
         {
-          token
+          token,
         },
         {
-          withCredentials: true
+          withCredentials: true,
         }
       );
 
@@ -108,6 +96,6 @@ export const useAuth = () => {
   return {
     handleGoogleLogin: () => handleLogin("google"),
     handleGithubLogin: () => handleLogin("github"),
-    handleLogout
+    handleLogout,
   };
 };
