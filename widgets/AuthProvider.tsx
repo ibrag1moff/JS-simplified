@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       if (user) {
         const token = await user.getIdToken();
         dispatch(fetchUser());
-        setCookie("user_token", token, { path: "/" });
+        setCookie("user_token", token, { path: "/", maxAge: 60 * 60 * 24 * 7 });
       } else {
         dispatch(logout());
         removeCookie("user_token");

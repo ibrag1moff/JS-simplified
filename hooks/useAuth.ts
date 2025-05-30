@@ -31,7 +31,10 @@ export const useAuth = () => {
       const firebaseToken = await user.getIdToken();
 
       if (firebaseToken) {
-        setCookie("user_token", firebaseToken, { path: "/" });
+        setCookie("user_token", firebaseToken, {
+          path: "/",
+          maxAge: 60 * 60 * 24 * 7,
+        });
 
         const resultAction = await dispatch(fetchUser());
 
