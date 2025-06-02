@@ -12,8 +12,8 @@ export default function MapsPage() {
         <Article>
           <p>
             When working with collections of data, JavaScript gives us a variety
-            of structures like Object, Array, Set, and Map. In this chapter,
-            we’ll dive deep into the Map object — a powerful key-value store
+            of structures like Object, Array, Set, and Map. In this chapter, we
+            will dive deep into the Map object — a powerful key-value store
             introduced in ES6.
           </p>
         </Article>
