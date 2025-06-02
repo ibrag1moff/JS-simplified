@@ -4,7 +4,7 @@ import { fetchUser, logout } from "@/store/slices/userSlice";
 import { onAuthStateChanged } from "firebase/auth";
 import { ReactNode, useEffect, useState } from "react";
 import { useCookies } from "react-cookie";
-import { RotateLoader } from "react-spinners";
+import { CustomLoading } from "./CustomLoading";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [, setCookie, removeCookie] = useCookies(["user_token"]);
@@ -30,12 +30,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
-  if (isLoading)
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <RotateLoader color="#7979fe" />
-      </div>
-    );
+  if (isLoading) return <CustomLoading />;
 
   return <>{children}</>;
 };

@@ -1,6 +1,8 @@
 "use client";
 import { useAppSelector } from "@/hooks/redux";
+import { useCheckout } from "@/hooks/useCheckout";
 import Container from "@/widgets/Container";
+import { CustomLoading } from "@/widgets/CustomLoading";
 import ProtectedRouteWidget from "@/widgets/ProtectedRouteWidget";
 import { ReactNode } from "react";
 
@@ -11,22 +13,28 @@ interface PaidRouteProps {
 export default function PaidRoute({ children }: PaidRouteProps) {
   const { isLoggedIn, user } = useAppSelector((state) => state.user);
 
+  const { isLoading, handleCreateCheckoutBase, handleCreateCheckoutSource } =
+    useCheckout();
+
   const prices = [
     {
       id: 1,
       title: "Base",
       price: "$8.99",
       info: ["Access to all articles", "Free future updates"],
+      buyNow: handleCreateCheckoutBase,
     },
     {
       id: 2,
       title: "Source",
       price: "$16.99",
       info: ["Everything in base", "Access to the source code of the book"],
+      buyNow: handleCreateCheckoutSource,
     },
   ];
 
   if (user?.role === "FREE") {
+    if (isLoading) return <CustomLoading />;
     return (
       <div className="px-5">
         <h3 className="font-semibold max-w-[450px] md:max-w-[600px] lg:text-2xl">
@@ -48,12 +56,16 @@ export default function PaidRoute({ children }: PaidRouteProps) {
                 </div>
                 <div>
                   {price.info.map((x) => (
-                    <li className="text-right text-sm">{x}</li>
+                    <li className="text-right font-medium text-sm">{x}</li>
                   ))}
                 </div>
               </div>
 
-              <button className="bg-primary w-full py-2 text-white text-sm font-medium border border-primary xl:hover:bg-transparent xl:hover:text-primary cursor-pointer transition-all duration-300 rounded-xl">
+              <button
+                disabled={isLoading}
+                onClick={price.buyNow}
+                className="bg-primary w-full py-2 text-white text-sm font-medium border border-primary xl:hover:bg-transparent xl:hover:text-primary cursor-pointer transition-all duration-300 rounded-xl"
+              >
                 Buy now
               </button>
             </div>

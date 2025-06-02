@@ -13,15 +13,13 @@ interface User {
 interface UserState {
   user: User | null;
   isLoggedIn: boolean;
-  isLoading: boolean;
   error: string | null;
 }
 
 const initialState: UserState = {
   user: null,
   isLoggedIn: false,
-  isLoading: false,
-  error: null
+  error: null,
 };
 
 export const fetchUser = createAsyncThunk(
@@ -37,8 +35,8 @@ export const fetchUser = createAsyncThunk(
         `${process.env.NEXT_PUBLIC_API_URL}/api/auth/me`,
         {
           headers: {
-            Authorization: `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -57,27 +55,25 @@ export const userSlice = createSlice({
     logout: (state) => {
       state.user = null;
       state.isLoggedIn = false;
-      state.isLoading = false;
+
       state.error = null;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUser.pending, (state) => {
-        state.isLoading = true;
         state.error = null;
       })
       .addCase(fetchUser.fulfilled, (state, action: PayloadAction<User>) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-        state.isLoading = false;
+
         state.error = null;
       })
       .addCase(fetchUser.rejected, (state, action) => {
-        state.isLoading = false;
         state.error = action.payload as string;
       });
-  }
+  },
 });
 
 export const { logout } = userSlice.actions;

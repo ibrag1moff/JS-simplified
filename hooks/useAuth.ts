@@ -11,6 +11,7 @@ import { useCookies } from "react-cookie";
 import { notifyError, notifySuccess } from "@/utils/notifications";
 import { fetchUser, logout } from "@/store/slices/userSlice";
 import { useAppDispatch } from "./redux";
+import { useState } from "react";
 
 const providers = {
   google: new GoogleAuthProvider(),
@@ -23,9 +24,12 @@ export const useAuth = () => {
   const [, setCookie, removeCookie] = useCookies(["user_token"]);
   const { closePopup } = usePopup();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useAppDispatch();
 
   const handleLogin = async (provider: Provider) => {
+    setIsLoading(true);
     try {
       const { user } = await signInWithPopup(firebaseAuth, providers[provider]);
       const firebaseToken = await user.getIdToken();
@@ -36,12 +40,7 @@ export const useAuth = () => {
           maxAge: 60 * 60 * 24 * 7,
         });
 
-        const resultAction = await dispatch(fetchUser());
-
-        if (fetchUser.fulfilled.match(resultAction)) {
-          const userData = resultAction.payload;
-          console.log("User data fetched:", userData);
-        }
+        await dispatch(fetchUser());
 
         closePopup();
       }
@@ -57,13 +56,16 @@ export const useAuth = () => {
       );
 
       notifySuccess("You have been logged in!");
-    } catch (e) {
+    } catch (e: any) {
       console.error("Error logging in", e);
-      notifyError();
+      notifyError(e.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleLogout = async () => {
+    setIsLoading(true);
     try {
       const currentUser = firebaseAuth.currentUser;
       if (!currentUser) {
@@ -90,13 +92,16 @@ export const useAuth = () => {
       closePopup();
 
       notifySuccess("You have been logged out!");
-    } catch (e) {
+    } catch (e: any) {
       console.error("Error logging out", e);
-      notifyError();
+      notifyError(e.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return {
+    isLoading,
     handleGoogleLogin: () => handleLogin("google"),
     handleGithubLogin: () => handleLogin("github"),
     handleLogout,

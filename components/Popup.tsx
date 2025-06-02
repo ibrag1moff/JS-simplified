@@ -2,12 +2,18 @@
 import { usePopup } from "@/context/popupContext";
 import { useAuth } from "@/hooks/useAuth";
 import { useAppSelector } from "@/hooks/redux";
+import { CustomLoading } from "@/widgets/CustomLoading";
 
 export default function Popup() {
   const { isPopupOpen } = usePopup();
 
-  const { handleGoogleLogin, handleGithubLogin, handleLogout } = useAuth();
-  const { user, isLoading } = useAppSelector((state) => state.user);
+  const { handleGoogleLogin, handleGithubLogin, handleLogout, isLoading } =
+    useAuth();
+  const { user } = useAppSelector((state) => state.user);
+
+  if (isLoading) {
+    return <CustomLoading />;
+  }
 
   return (
     <div
@@ -34,7 +40,7 @@ export default function Popup() {
               onClick={handleLogout}
               className="bg-primary !text-white rounded-xl py-2 px-8 font-medium  cursor-pointer"
             >
-              {isLoading ? "Loading..." : "Log out"}
+              Log out
             </button>
           </div>
         ) : (
@@ -48,13 +54,13 @@ export default function Popup() {
               onClick={handleGoogleLogin}
               className="bg-primary !text-white rounded-xl py-2 px-8 font-medium  cursor-pointer"
             >
-              {isLoading ? "Loading..." : "Login with Google"}
+              Login with Google
             </button>
             <button
               onClick={handleGithubLogin}
               className="bg-primary !text-white rounded-xl py-2 px-8 font-medium  cursor-pointer"
             >
-              {isLoading ? "Loading..." : "Login with Github"}
+              Login with Github
             </button>
           </>
         )}
