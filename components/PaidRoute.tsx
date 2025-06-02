@@ -1,7 +1,6 @@
 "use client";
 import { useAppSelector } from "@/hooks/redux";
 import { useCheckout } from "@/hooks/useCheckout";
-import Container from "@/widgets/Container";
 import { CustomLoading } from "@/widgets/CustomLoading";
 import ProtectedRouteWidget from "@/widgets/ProtectedRouteWidget";
 import { ReactNode } from "react";
@@ -55,8 +54,10 @@ export default function PaidRoute({ children }: PaidRouteProps) {
                   <span className="font-medium">{price.price}</span>
                 </div>
                 <div>
-                  {price.info.map((x) => (
-                    <li className="text-right font-medium text-sm">{x}</li>
+                  {price.info.map((x, i) => (
+                    <li key={i} className="text-right font-medium text-sm">
+                      {x}
+                    </li>
                   ))}
                 </div>
               </div>

@@ -194,13 +194,12 @@ console.log([1, 2] === [1, 2]); // false`}
           they are copied by value. However, objects, arrays, and functions
           introduce complexity, as they are passed by reference. This means that
           even small changes in one part of your code can ripple across your
-          application if you’re not careful.
+          application if you are not careful.
         </p>
 
         <p>
           Mastering this concept will give you more control over your
-          application’s behavior and make you a stronger, more mindful
-          developer.
+          application behavior and make you a stronger, more mindful developer.
         </p>
       </Article>
     </Chapter>

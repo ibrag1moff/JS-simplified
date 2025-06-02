@@ -5,23 +5,23 @@ import SectionTitle from "@/widgets/SectionTitle";
 
 export default function MapsPage() {
   return (
-    // <PaidRoute>
-    <Chapter>
-      <SectionTitle title="Maps" />
+    <PaidRoute>
+      <Chapter>
+        <SectionTitle title="Maps" />
 
-      <Article>
-        <p>
-          When working with collections of data, JavaScript gives us a variety
-          of structures like Object, Array, Set, and Map. In this chapter, we’ll
-          dive deep into the Map object — a powerful key-value store introduced
-          in ES6.
-        </p>
-      </Article>
+        <Article>
+          <p>
+            When working with collections of data, JavaScript gives us a variety
+            of structures like Object, Array, Set, and Map. In this chapter,
+            we’ll dive deep into the Map object — a powerful key-value store
+            introduced in ES6.
+          </p>
+        </Article>
 
-      <Article title="What is a Map?">
-        <p></p>
-      </Article>
-    </Chapter>
-    // </PaidRoute>
+        <Article title="What is a Map?">
+          <p></p>
+        </Article>
+      </Chapter>
+    </PaidRoute>
   );
 }
