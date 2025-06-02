@@ -47,7 +47,7 @@ console.log(b); // 20`}
         />
 
         <p>
-          In this example b gets a copy of a's value. Changing b does not affect
+          In this example b gets a copy of a value. Changing b does not affect
           a, since they are two separate copies.
         </p>
       </Article>
@@ -117,7 +117,7 @@ console.log(anotherObj.value); // 0`}
 
       <Article title="Cloning Objects and Arrays">
         <p>
-          To avoid unintended side effects, it’s common to clone objects or
+          To avoid unintended side effects, it is common to clone objects or
           arrays before modifying them.
         </p>
 
@@ -137,7 +137,7 @@ console.log(original.name); // "Alice"`}
           <h3>Deep Cloaning</h3>
           <p>
             Shallow cloning only copies the first level. For nested structures,
-            you’ll need deep cloning:
+            you will need deep cloning:
           </p>
           <CodeDisplay
             code={`const original = {
@@ -154,7 +154,7 @@ console.log(original.address.city); // "Baku"`}
           />
         </div>
 
-        <ProTip title="JSON cloning doesn’t work well with functions, undefined, Date, Map, Set, etc." />
+        <ProTip title="JSON cloning does not work well with functions, undefined, Date, Map, Set, etc." />
 
         <p>For complex structures, consider libraries like Lodash:</p>
         <CodeDisplay
