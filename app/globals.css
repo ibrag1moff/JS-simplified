@@ -13,7 +13,23 @@
 }
 
 body {
-  @apply bg-[#fff] dark:bg-body text-black dark:text-white font-serif;
+  @apply text-black dark:text-white font-serif;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(121, 121, 254, 0.14), transparent 30%),
+    radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.12), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #f5f7fb 45%, #f8f9ff 100%);
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(121, 121, 254, 0.24), transparent 32%),
+    radial-gradient(circle at 90% 0%, rgba(56, 189, 248, 0.16), transparent 28%),
+    linear-gradient(180deg, #111827 0%, #0f172a 50%, #111827 100%);
+}
+
+body.studio-page,
+.dark body.studio-page {
+  background: transparent;
 }
 
 *::selection {
@@ -43,4 +59,12 @@ ul {
 
 .notifySuccess {
   @apply !bg-primary;
+}
+
+.glass-surface {
+  @apply border border-white/35 dark:border-white/10 bg-white/55 dark:bg-slate-900/45 backdrop-blur-2xl shadow-[0_8px_32px_rgba(15,23,42,0.12)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)];
+}
+
+.glass-card {
+  @apply border border-white/40 dark:border-white/10 bg-white/65 dark:bg-slate-900/45 backdrop-blur-xl shadow-[0_6px_24px_rgba(15,23,42,0.1)] dark:shadow-[0_6px_20px_rgba(0,0,0,0.28)];
 }

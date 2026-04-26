@@ -10,8 +10,8 @@ const CodeDisplay = ({ code }: { code: string }) => {
   }, []);
 
   return (
-    <div className="px-2 bg-body/70 dark:bg-primary/10 border border-primary shadow-custom shadow-primary rounded-lg my-8">
-      <pre className="text-white  overflow-x-auto !bg-transparent">
+    <div className="px-3 py-1 glass-card rounded-2xl my-8 border-primary/35 dark:border-primary/30">
+      <pre className="text-white overflow-x-auto !bg-transparent">
         <code className="language-js">{code}</code>
       </pre>
     </div>
